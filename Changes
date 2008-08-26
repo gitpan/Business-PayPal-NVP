@@ -1,0 +1,12 @@
+Revision history for Perl extension Business::PayPal::NVP.
+
+Release: 1.02
+----------------------------
+revision 1.2
+date: 2008/08/26 19:27:12;  author: swiersdorf;  state: Exp;  lines: +256 -43
+- docs brought up to speed
+- cleaned up test env
+
+0.01  Wed Jun  4 21:35:17 2008
+	- original version; created by h2xs 1.23 with options
+		-AX Business::PayPal::NVP
