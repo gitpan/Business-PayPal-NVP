@@ -1,4 +1,4 @@
-Business-PayPal-NVP version 0.01
+Business-PayPal-NVP version 1.03
 ================================
 
   my $pp = new Business::PayPal::NVP(%args);

@@ -2,9 +2,8 @@ use strict;
 use warnings;
 use Test::More;
 use Data::Dumper;
-BEGIN { use_ok('Business::PayPal::NVP') };
 
-my $NUM_TESTS = 4;
+my $NUM_TESTS = 5;
 
 #########################
 
@@ -27,11 +26,15 @@ DO_AUTH: {
       }
 
       plan skip_all => "auth.txt found but incomplete. See README or module documentation";
+      exit;
   }
   else {
       plan skip_all => "No auth.txt found. See README or module documentation";
+      exit;
   }
 }
+
+use_ok('Business::PayPal::NVP');
 
 my $pp = new Business::PayPal::NVP( test => \%auth, branch => 'test' );
 

@@ -4,7 +4,7 @@ use 5.008001;
 use strict;
 use warnings;
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 our $AUTOLOAD;
 
 our $Debug  = 0;
