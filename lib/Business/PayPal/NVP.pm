@@ -4,7 +4,7 @@ use 5.008001;
 use strict;
 use warnings;
 
-our $VERSION = '1.03';
+our $VERSION = '1.05';
 our $AUTOLOAD;
 
 our $Debug  = 0;
@@ -85,8 +85,9 @@ sub _do_request {
         return ();
     }
 
-    my @fields = map { URI::Escape::uri_unescape($_) } split('&', $res->content);
-    return map { split /=/ } @fields;
+    return map { URI::Escape::uri_unescape($_) }
+      map { split /=/, $_, 2 }
+        split /&/, $res->content;
 }
 
 sub _build_content {
@@ -222,7 +223,7 @@ all of the messy HTTP transport issues.
 
 Here is the PayPal NVP API:
 
-L<https://www.paypal.com/en_US/pdf/PP_NVPAPI_DeveloperGuide.pdf>
+L<https://cms.paypal.com/cms_content/US/en_US/files/developer/PP_NVPAPI_DeveloperGuide.pdf>
 
 =head1 METHODS
 
@@ -348,6 +349,11 @@ using the "automatic" method.
 Example:
 
   %resp = $pp->send(METHOD => 'DoDirectPayment', %arguments);
+
+=head1 EXAMPLES
+
+Examples for each method are scattered throughout the documentation
+above, as well as in the F<t> directory of this distribution.
 
 =head1 TESTING
 

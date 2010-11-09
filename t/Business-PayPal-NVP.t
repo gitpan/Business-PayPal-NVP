@@ -20,6 +20,10 @@ DO_AUTH: {
       }
       close $fh;
 
+      print STDERR "AUTH:\n";
+      print STDERR Dumper(\%auth);
+
+
       if( %auth ) {
           plan tests => $NUM_TESTS;
           last DO_AUTH;
@@ -36,6 +40,7 @@ DO_AUTH: {
 
 use_ok('Business::PayPal::NVP');
 
+$GBN::PayPal::Debug = 0;
 my $pp = new Business::PayPal::NVP( test => \%auth, branch => 'test' );
 
 my %ans = ();
